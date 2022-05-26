@@ -6,9 +6,10 @@ const toRegisterUser = (event) => {
     elements: { email, password },
   } = event.target;
     if (email.value === "" || password.value === "") {
-        alert("Dсе поля должны быть заполнены!");
+      alert("Dсе поля должны быть заполнены!");
+      return;
     }
-    console.log(`email:${email.value}, password:${password.value}`);
+    console.log(`{email:${email.value}, password:${password.value}}`);
     event.target.reset();
 };
 formEl.addEventListener("submit", toRegisterUser);
