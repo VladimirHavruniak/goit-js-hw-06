@@ -14,16 +14,28 @@ const images = [
 ];
 const galleryLiseEl = document.querySelector(".gallery");
 
-const toAddImages = function (massive) {
-    massive.map((el) => {
-        const galleryItemEl = document.createElement("li");
-        galleryItemEl.classList.add("js-styles-gallery");
-        const galleryimageEl = document.createElement("img");
-        galleryimageEl.src = el.url;
-        galleryimageEl.alt = el.alt;
-        galleryimageEl.width = "450";
-        galleryItemEl.append(galleryimageEl);
-        galleryLiseEl.append(galleryItemEl);
-    } );
+// const toAddImages = function (massive) {
+//     massive.map((el) => {
+//         const galleryItemEl = document.createElement("li");
+//         galleryItemEl.classList.add("js-styles-gallery");
+//         const galleryimageEl = document.createElement("img");
+//         galleryimageEl.src = el.url;
+//         galleryimageEl.alt = el.alt;
+//         galleryimageEl.width = "450";
+//         galleryItemEl.append(galleryimageEl);
+//         galleryLiseEl.append(galleryItemEl);
+//     } );
+// }
+// toAddImages(images);
+
+function toAddImages() {
+  const result = images.map((el) => {
+    return `<li class="js-styles-gallery">
+    <img src = "${el.url}" alt = "${el.alt}" width="450">
+    </li>`;
+  }).join("");
+  return result;
 }
-toAddImages(images);
+const list =toAddImages();
+galleryLiseEl.insertAdjacentHTML("beforeend",list);
+

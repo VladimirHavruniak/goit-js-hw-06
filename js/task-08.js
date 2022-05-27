@@ -9,7 +9,11 @@ const toRegisterUser = (event) => {
       alert("Dсе поля должны быть заполнены!");
       return;
     }
-    console.log(`{email:${email.value}, password:${password.value}}`);
+  const result = {
+    email: email.value,
+    password: password.value
+  }
+    console.log(result);
     event.target.reset();
 };
 formEl.addEventListener("submit", toRegisterUser);
